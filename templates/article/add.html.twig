@@ -1,0 +1,10 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Добавить статьи{% endblock %}
+
+{% block body %}
+    <h1>Добавить статьи</h1>
+    <p>Нажмите на кнопку ниже, чтобы добавить несколько статей в базу данных.</p>
+
+    <a href="{{ path('article_add') }}" class="btn btn-primary">Добавить статьи</a>
+{% endblock %}

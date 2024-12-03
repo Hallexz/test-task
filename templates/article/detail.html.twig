@@ -1,0 +1,13 @@
+{# templates/article/detail.html.twig #}
+
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ article.title }}{% endblock %}
+
+{% block body %}
+    <h1>{{ article.title }}</h1>
+    <p><strong>Slug:</strong> {{ article.slug }}</p>
+    <p><strong>Описание:</strong> {{ article.description }}</p>
+    <p><strong>Просмотры:</strong> {{ article.views }}</p>
+    <p><strong>Дата создания:</strong> {{ article.createdAt|date('Y-m-d H:i') }}</p>
+{% endblock %}
