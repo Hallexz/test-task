@@ -21,7 +21,7 @@
         <p><strong>Описание:</strong> {{ article.description }}</p>
         
         {# Отображаем количество просмотров статьи #}
-        <p><strong>Просмотры:</strong> {{ article.views }}</p>
+        <p><strong>Просмотры:</strong> {{ article.views|format_views }}</p>
         
         {# Отображаем дату создания статьи, форматируем дату #}
         <p><strong>Дата создания:</strong> {{ article.createdAt|date('Y-m-d H:i') }}</p>
