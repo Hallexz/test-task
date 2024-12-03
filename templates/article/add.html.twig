@@ -2,9 +2,33 @@
 
 {% block title %}Добавить статьи{% endblock %}
 
-{% block body %}
-    <h1>Добавить статьи</h1>
-    <p>Нажмите на кнопку ниже, чтобы добавить несколько статей в базу данных.</p>
+{% block stylesheets %}
+    {# Подключаем CSS файл для страницы добавления статьи #}
+    <link rel="stylesheet" href="{{ asset('styles/article.css') }}">
+{% endblock %}
 
-    <a href="{{ path('article_add') }}" class="btn btn-primary">Добавить статьи</a>
+{% block body %}
+    <div class="add-article-page">
+        {# Заголовок страницы #}
+        <h1>Добавить статьи</h1>
+        
+        {# Описание действия на странице #}
+        <p>Нажмите на кнопку ниже, чтобы добавить несколько статей в базу данных.</p>
+
+        {# Форма с POST-запросом для добавления статей #}
+        <form action="{{ path('article_add') }}" method="post">
+            {# Кнопка отправки формы для добавления статей #}
+            <button type="submit" class="btn">Добавить статьи</button>
+        </form>
+
+        {# Отображение сообщений после выполнения действия #}
+        {% if messages is not empty %}
+            <div class="messages">
+                {# Проходим по всем сообщениям и отображаем их #}
+                {% for message in messages %}
+                    <p class="message">{{ message }}</p>
+                {% endfor %}
+            </div>
+        {% endif %}
+    </div>
 {% endblock %}

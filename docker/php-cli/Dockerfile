@@ -18,8 +18,7 @@ RUN mv $PHP_INI_DIR/php.ini-development $PHP_INI_DIR/php.ini
 
 # Get Composer
 COPY --from=composer:2.1 /usr/bin/composer /usr/local/bin/composer
-
-RUN usermod -u ${UID} www-data
+RUN id -u www-data || adduser -D -g www-data -u 1000 www-data
 
 # Set working directory
 WORKDIR /var/www/test-task

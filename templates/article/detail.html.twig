@@ -1,13 +1,29 @@
-{# templates/article/detail.html.twig #}
+{# Шаблон для отображения детальной информации о статье #}
 
 {% extends 'base.html.twig' %}
 
 {% block title %}{{ article.title }}{% endblock %}
 
+{% block stylesheets %}
+    {# Подключаем CSS файл для страницы отображения статьи #}
+    <link rel="stylesheet" href="{{ asset('styles/article.css') }}">
+{% endblock %}
+
 {% block body %}
-    <h1>{{ article.title }}</h1>
-    <p><strong>Slug:</strong> {{ article.slug }}</p>
-    <p><strong>Описание:</strong> {{ article.description }}</p>
-    <p><strong>Просмотры:</strong> {{ article.views }}</p>
-    <p><strong>Дата создания:</strong> {{ article.createdAt|date('Y-m-d H:i') }}</p>
+    <div class="add-article-page">
+        {# Заголовок страницы - название статьи #}
+        <h1>{{ article.title }}</h1>
+        
+        {# Отображаем slug статьи (уникальный идентификатор) #}
+        <p><strong>Slug:</strong> {{ article.slug }}</p>
+        
+        {# Отображаем описание статьи #}
+        <p><strong>Описание:</strong> {{ article.description }}</p>
+        
+        {# Отображаем количество просмотров статьи #}
+        <p><strong>Просмотры:</strong> {{ article.views }}</p>
+        
+        {# Отображаем дату создания статьи, форматируем дату #}
+        <p><strong>Дата создания:</strong> {{ article.createdAt|date('Y-m-d H:i') }}</p>
+    </div>
 {% endblock %}

@@ -1,19 +1,30 @@
-{# templates/article/list.html.twig #}
+{# Шаблон для отображения списка статей #}
 
 {% extends 'base.html.twig' %}
 
 {% block title %}Список статей{% endblock %}
 
-{% block body %}
-    <h1>Список статей</h1>
+{% block stylesheets %}
+    {# Подключаем CSS файл для страницы списка статей #}
+    <link rel="stylesheet" href="{{ asset('styles/article.css') }}">
+{% endblock %}
 
-    <ul>
-        {% for article in articles %}
-            <li>
-                <a href="{{ path('article_detail', {'slug': article.slug}) }}">
-                    {{ article.title }}
-                </a>
-            </li>
-        {% endfor %}
-    </ul>
+{% block body %}
+    {# Заголовок страницы #}
+    <h1>Список статей</h1>
+    
+    {# Перебираем все статьи и отображаем их #}
+    {% for article in articles %}
+    
+    <div class="add-article-page">
+        {# Ссылка на детальное описание статьи, используем slug для маршрута #}
+        <a href="{{ path('article_detail', {'slug': article.slug}) }}">
+            {# Название статьи #}
+            <h1>{{ article.title }}</h1>
+            {# Отображаем slug статьи #}
+            <p><strong>Slug:</strong> {{ article.slug }}</p>
+        </a>
+    </div>
+    
+    {% endfor %}
 {% endblock %}

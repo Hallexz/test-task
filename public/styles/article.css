@@ -1,0 +1,83 @@
+/* Общие стили для заголовков */
+h1 {
+    font-size: 2.5rem;
+    color: #6a0dad; /* Темно-фиолетовый цвет заголовков */
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* Стили для абзацев */
+p {
+    font-size: 1.2rem;
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+a {
+    text-decoration: none !important; /* Убираем подчеркивание для всех ссылок */
+}
+
+/* Стили для кнопки */
+.btn {
+    padding: 10px 20px;
+    background-color: #9b4d96; /* Сиреневый цвет кнопки */
+    color: white;
+    border-radius: 5px;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 1.2rem;
+    transition: background-color 0.3s, box-shadow 0.3s; /* Плавный переход для фона и тени */
+    text-align: center;
+}
+
+.btn:hover {
+    background-color: #6a0dad; /* Темно-фиолетовый цвет кнопки при наведении */
+    box-shadow: 0 0 10px rgba(106, 13, 173, 0.7); /* Эффект сияния */
+}
+
+/* Дополнительные стили для ссылок в кнопке */
+.add-article-page .btn {
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* Стили для страницы добавления статьи */
+.add-article-page {
+    text-align: center;
+    padding: 40px 20px;
+    background-color: #f3e5f5; /* Легкий сиреневый фон */
+    border-radius: 8px;
+    border: 2px solid #9b4d96; /* Сиреневая рамка */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Легкое затенение */
+    margin: 40px auto;
+    max-width: 600px; /* Максимальная ширина */
+    transition: box-shadow 0.3s ease, transform 0.3s ease; /* Плавный переход для тени и трансформации */
+}
+
+/* Эффект сияния при наведении на карточку для добавления статьи */
+.add-article-page:hover {
+    box-shadow: 0 0 20px rgba(106, 13, 173, 0.7); /* Эффект сияния */
+    transform: scale(1.05); /* Легкое увеличение карточки */
+}
+
+.add-article-page h1 {
+    font-size: 2.5rem;
+    color: #6a0dad; /* Темно-фиолетовый цвет заголовка */
+}
+
+.add-article-page p {
+    font-size: 1.2rem;
+    color: #6a0dad; /* Темно-фиолетовый цвет текста */
+}
+
+.add-article-page .btn {
+    margin-top: 20px;
+}
+
+/* Дополнительные стили для ссылок в кнопке */
+.add-article-page .btn {
+    text-decoration: none;
+    font-weight: bold;
+}
+

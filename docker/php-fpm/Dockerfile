@@ -1,26 +1,27 @@
 FROM php:8.2-fpm-alpine
 
-ARG UID
-
-COPY ./conf.d /usr/local/etc/php/conf.d
-
+# Установка необходимых пакетов
 RUN apk add --no-cache --update \
     $PHPIZE_DEPS \
     shadow \
     icu-dev \
     libzip-dev
 
+# Конфигурирование и установка PHP расширений
 RUN docker-php-ext-configure pdo_mysql --with-pdo-mysql && docker-php-ext-configure intl --enable-intl
-
-# Install PHP extensions
 RUN docker-php-ext-install -j$(nproc) pdo_mysql intl zip opcache
 
-# Create PHP configuration
+# Настройка PHP
 RUN mv $PHP_INI_DIR/php.ini-development $PHP_INI_DIR/php.ini
 
-RUN usermod -u ${UID} www-data
+# Установка Composer
+COPY --from=composer:2.1 /usr/bin/composer /usr/local/bin/composer
 
-# Set working directory
+# Проверка и создание пользователя www-data
+RUN id -u www-data || adduser -D -g www-data -u 1000 www-data
+
+# Установка рабочего каталога
 WORKDIR /var/www/test-task
 
-USER ${UID}
+# Переключение на пользователя
+USER www-data

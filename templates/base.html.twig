@@ -6,9 +6,9 @@
         <meta name="viewport" content="width=device-width,initial-scale=1.0,viewport-fit=cover">
 
         <title>Тестовое задание ТМК</title>
-
-        {% block stylesheets %}{{ encore_entry_link_tags('app') }}{% endblock %}
-        {% block javascripts %}{{ encore_entry_script_tags('app') }}{% endblock %}
+        {% block stylesheets %}
+            <link rel="stylesheet" href="{{ asset('styles/article.css') }}">
+        {% endblock %}
     </head>
     <body>
         <header></header>
